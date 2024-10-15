@@ -1,0 +1,5 @@
+﻿  dllmain.cpp
+C:\Users\Fillu\Desktop\Fairytale\OperatingSchedule\Algorithm\dllmain.cpp(136,17): warning C4101: 'ampm': unreferenced local variable
+  (compiling source file '/dllmain.cpp')
+  
+  Algorithm.vcxproj -> C:\Users\Fillu\Desktop\Fairytale\OperatingSchedule\x64\Debug\Algorithm.dll

@@ -1,0 +1,82 @@
+﻿<Page x:Class="OperatingSchedule.AnesthesiologistsPage"
+      KeepAlive="True"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:xctk="http://schemas.xceed.com/wpf/xaml/toolkit"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:OperatingSchedule"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="AnesthesiologistsPage">
+
+    <Grid Margin="10">
+        <ScrollViewer VerticalScrollBarVisibility="Auto">
+            <StackPanel x:Name="AnesthesiologistStackPanel" Orientation="Vertical">
+
+                <!-- Title Text -->
+                <TextBlock 
+                    Text="Anesthesiologist List" 
+                    FontSize="16" 
+                    FontWeight="Bold" 
+                    Margin="5"
+                    Foreground="White"/>
+
+                <!-- Area to dynamically add anesthesiologists -->
+                <ItemsControl x:Name="AnesthesiologistItemControl">
+                    <ItemsControl.ItemTemplate>
+                        <DataTemplate>
+                            <StackPanel Margin="5">
+                                <!-- Anesthesiologist Name -->
+                                <TextBox Width="250" 
+                                         Margin="5" 
+                                         Text="Enter Anesthesiologist Name" 
+                                         GotFocus="TextBox_GotFocus" 
+                                         LostFocus="TextBox_LostFocus"
+                                         Style="{StaticResource SurgeryModernTextbox}"/>
+
+                                <!-- Start and End Availability -->
+                                <StackPanel Orientation="Horizontal" Margin="5">
+
+                                    <!-- Day of the Week ComboBox -->
+                                    <StackPanel Orientation="Vertical" Margin="5">
+                                        <TextBlock Text="Day of the Week" FontSize="12" Foreground="White"/>
+                                        <ComboBox x:Name="dayOfWeekComboBox" Width="150" Margin="5"
+                                        ItemsSource="{Binding Path=AvailableDaysOfWeek}" SelectedIndex="0"/>
+                                    </StackPanel>
+
+                                    <StackPanel Orientation="Vertical" Margin="5">
+                                        <TextBlock Text="Start Availability" FontSize="12" Foreground="White"/>
+                                        <ComboBox x:Name="startTimeComboBox" Width="150" Margin="5"
+                                        ItemsSource="{Binding Path=AvailableStartTimes}" SelectedIndex="0"/>
+                                    </StackPanel>
+
+                                    <StackPanel Orientation="Vertical" Margin="5">
+                                        <TextBlock Text="End Availability" FontSize="12" Foreground="White"/>
+                                        <ComboBox x:Name="endTimeComboBox" Width="150" Margin="5"
+                                        ItemsSource="{Binding Path=AvailableEndTimes}" SelectedIndex="8"/>
+                                    </StackPanel>
+
+                                </StackPanel>
+
+                                <!-- Remove Anesthesiologist Button -->
+                                <Button Content="Remove Anesthesiologist" 
+                                        Width="150" 
+                                        Margin="5"
+                                        Style="{StaticResource AddSurgeonButtonTheme}"/>
+                            </StackPanel>
+                        </DataTemplate>
+                    </ItemsControl.ItemTemplate>
+                </ItemsControl>
+
+                <!-- Add Anesthesiologist Button -->
+                <Button Content="Add Anesthesiologist" 
+                        Width="150" 
+                        Click="AddAnesthesiologistButton_Click" 
+                        Margin="5"
+                        Foreground="White"
+                        Style="{StaticResource AddSurgeonButtonTheme}"/>
+            </StackPanel>
+        </ScrollViewer>
+    </Grid>
+</Page>

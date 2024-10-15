@@ -1,0 +1,74 @@
+﻿<Window x:Class="OperatingSchedule.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:OperatingSchedule"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="700" Width="1200"
+        WindowStyle ="None"
+        ResizeMode ="NoResize"
+        Background ="Transparent"
+        AllowsTransparency="True">
+
+    <Border Background="#272537"
+            CornerRadius="20">
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="200"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+
+            <Grid.RowDefinitions>
+                <RowDefinition Height="75"/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+
+            <TextBlock Grid.ColumnSpan="2"
+                   Text="OR Schedule"
+                   VerticalAlignment="Center"
+                   HorizontalAlignment="Left"
+                   Foreground="White"
+                   FontSize="22"
+                   Margin="20,0,0,0"/>
+
+            <StackPanel Grid.Row="1" Grid.Column="0">
+
+                <RadioButton Content="Surgeons"
+                             Height="50"
+                             Foreground="White"
+                             FontSize="15"
+                             Style="{StaticResource MenuButtonTheme}"
+                             Checked="SurgeonsButton_Checked"/>
+
+                <RadioButton Content="Anesthesiologists"
+                             Height="50"
+                             Foreground="White"
+                             FontSize="15"
+                             Style="{StaticResource MenuButtonTheme}"
+                             Checked="AnesthesiologistButton_Checked"/>
+
+                <RadioButton Content="Proposed Schedule"
+                             Height="50"
+                             Foreground="White"
+                             FontSize="15"
+                             Style="{StaticResource MenuButtonTheme}"
+                             Checked="ScheduleButton_Checked"/>
+
+            </StackPanel>
+
+            <TextBox Grid.Row="0" Grid.Column="1"
+                     Width="250"
+                     Height="50"
+                     VerticalContentAlignment="Center"
+                     HorizontalAlignment="Left"
+                     Margin="20,10,0,15"
+                     Style="{StaticResource ModernTextbox}" 
+                     TextChanged="TextBox_TextChanged"/>
+
+            <Frame Name="MainFrame" Grid.Row="1" Grid.Column="1" NavigationUIVisibility="Hidden"/>
+
+        </Grid>
+
+    </Border>
+</Window>
